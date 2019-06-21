@@ -9,18 +9,23 @@ $("button").click(function(){
         method:"GET",
     }).then(function(response){
 
-console.log(queryUrl);
-var results=response.data;
-$("#gifs-appear-here").empty();
-$.each(results, function(i){
-    
-    var gifDiv=$("<img>");
-   var giphy= gifDiv.attr("src",results[i].images.fixed_height.url);
-   $("#gifs-appear-here").append(giphy);
+            console.log(queryUrl);
+            var results=response.data;     // get data wich is an array with three objects
+            $("#gifs-appear-here").empty();   // empty the div
+            $.each(results, function(i){        // for each items of array run a function
+            // get the giphy
+            var gifImg=$("<img>");                
+            var giphy= gifImg.attr("src",results[i].images.fixed_height.url); 
 
-});
-    
-});
+            //make new div to put images in it
+            var gifDiv= $("<div>")              
+            gifDiv.append(gifImg);
+            // display the div on the page
+            $("#gifs-appear-here").append(gifDiv);
+
+    });
+
+    });
 
 
 });
