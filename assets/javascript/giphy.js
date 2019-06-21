@@ -10,7 +10,17 @@ $("button").click(function(){
     }).then(function(response){
 
 console.log(queryUrl);
+var results=response.data;
+$("#gifs-appear-here").empty();
+$.each(results, function(i){
+    
+    var gifDiv=$("<img>");
+   var giphy= gifDiv.attr("src",results[i].images.fixed_height.url);
+   $("#gifs-appear-here").append(giphy);
 
-    });
+});
+    
+});
+
 
 });
