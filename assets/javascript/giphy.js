@@ -1,6 +1,8 @@
 
 $("button").click(function(){
     var person=$(this).attr("data-person");   // get the data-person of this (the button that is clicked by the user)
+   //Make sure you switch the protocol in the query URL from **`http to https`**, or the app may not work properly when deployed 
+    //to Github Pages.
 
     var queryUrl= "https://api.giphy.com/v1/gifs/search?q="+person+"&api_key=BkaUZZWcFij6J7AoQj3WtPb1R2p9O6V9&limit=3";
 
